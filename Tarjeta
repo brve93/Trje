@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Más allá de la luna 🌙</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ESCENA */
+#scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at bottom, #050b2e, #000);
+}
+
+/* ESTRELLAS */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://i.imgur.com/7bKQX6F.png");
+  background-size: cover;
+  opacity: 0.7;
+}
+
+/* MAPAMUNDI */
+#map {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: #4fb3ff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* LUNA */
+#moon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: #e6e6e6;
+  border-radius: 50%;
+  top: 47%;
+  left: 55%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2;
+  transition: all 3s ease;
+}
+
+/* TEXTO */
+#text {
+  position: absolute;
+  width: 100%;
+  bottom: 18%;
+  text-align: center;
+  font-size: 2.2rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 5;
+}
+
+/* SOBRE */
+#envelope {
+  position: absolute;
+  width: 220px;
+  height: 140px;
+  background: #fff;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 1;
+}
+
+#letter {
+  padding: 15px;
+  display: none;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene">
+  <div class="stars"></div>
+  <div id="map"></div>
+  <div id="moon"></div>
+
+  <div id="text">Te quiero más allá de la luna 🌙</div>
+
+  <div id="envelope">
+    <div id="letter">
+      <h2>🎉 Feliz Cumpleaños 🎉</h2>
+      <p>
+        Que este nuevo año esté lleno de magia,
+        sueños cumplidos y momentos felices.
+        Gracias por existir 💖
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ESCENA 1 – Luna detrás del mapa */
+setTimeout(() => {
+  document.getElementById("moon").style.zIndex = 4;
+}, 1000);
+
+/* ESCENA 2 – Luna viene al frente y sale */
+setTimeout(() => {
+  const moon = document.getElementById("moon");
+  moon.style.transform = "translate(-300px, 300px) scale(2.5)";
+}, 4000);
+
+/* ESCENA 3 – Luna vuelve grande al centro */
+setTimeout(() => {
+  const moon = document.getElementById("moon");
+  moon.style.top = "42%";
+  moon.style.left = "50%";
+  moon.style.transform = "translate(-50%, -50%) scale(3.5)";
+}, 8000);
+
+/* ESCENA 4 – Texto aparece */
+setTimeout(() => {
+  document.getElementById("text").style.opacity = 1;
+}, 10500);
+
+/* ESCENA 5 – Sobre aparece */
+setTimeout(() => {
+  document.getElementById("envelope").style.display = "block";
+}, 13500);
+
+/* ESCENA 6 – Carta se abre */
+setTimeout(() => {
+  document.getElementById("letter").style.display = "block";
+}, 16000);
+</script>
+
+</body>
+</html>
